@@ -1,15 +1,16 @@
 const http = require('http');
-const express = require('express');
 
 const app = require('./app');
-const planetsRouter = require('./routes/planets/planets.router');
+const { loadPlanetsData } = require('./modules/planets.module');
 
 const PORT = process.env.PORT || 8000;
 const server = http.createServer(app);
 
-app.use(express.json());
-app.use(planetsRouter);
+async function startServer() {
+  await loadPlanetsData();
+  server.listen(PORT, () => {
+    console.log(`Listening for ${PORT}`);
+  });
+}
 
-server.listen(PORT, () => {
-  console.log(`Listening for ${PORT}`);
-});
+startServer();
