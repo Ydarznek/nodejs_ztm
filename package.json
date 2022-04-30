@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test-watch": "jest --watch",
     "start": "node src/server.js",
     "watch": "nodemon src/server.js"
   },
@@ -22,6 +23,8 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.1.5",
+    "jest": "^28.0.3",
     "nodemon": "^2.0.15",
     "prettier": "^2.6.2"
   }
