@@ -1,13 +1,13 @@
 name: test CI
 on:
   push:
-    branch: [master]
+    branches: [master]
   pull_request:
     branches: [master]
 jobs:
   build:
     env:
-      CI: true,
+      CI: true
       MONGO_URL: mongodb://localhost/nasa
     strategy:
       matrix:
@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: MongoDB for GitHub Actions
+      - name: Use MongoDB from GitHub actions
         uses: timgchile/mongodb-github-action@1.7.4
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
